@@ -7,26 +7,30 @@ const resultsContainer = document.querySelector(".container");
 
 async function runApiCall() {
     try {
+
+        // fetching API call
         const response = await fetch(url);
         
         const results = await response.json();
 
         
-
+        // removes the html (loader) in resultsContainer
         resultsContainer.innerHTML = "";
 
+        // looping through the results from the API
         for (let i = 0; i < results.length; i++ ) {
 
-
+            // assigning variables to all the API properties
             const jokeType = `${results[i].type}`;
             const jokeSetup = `${results[i].setup}`;
             const jokePunchline = `${results[i].punchline}`;
 
-
+            // when index hits 5 = break the loop
             if (i === 5) {
                 break;
             }
 
+            // adding html with type, setup and punchline properties
             resultsContainer.innerHTML += `<div class="col-sm-6 col-md-4 col-lg-3">
                                                 <div class="card">
                                                     <div class="joke-detail">
@@ -38,8 +42,10 @@ async function runApiCall() {
                                             </div>` 
         }
 
+        // changing title metatag to be value of 3rd result of setup property 
         document.title = `${results[2].setup}`;
-
+    
+    // catch and display error message
     } catch (error) {
         console.log(error);
         loader.style.display= "none";
@@ -48,6 +54,8 @@ async function runApiCall() {
         
     }
 }
+//removes card element(template) when loading API
 card.innerHTML = "";
 
+// waits 1 second before running API call
 setTimeout(runApiCall, 1000);

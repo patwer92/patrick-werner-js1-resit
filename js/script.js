@@ -6,10 +6,13 @@ const punchlineContainer = document.querySelector(".punchline");
 async function runApiCall() {
 
     try {
+
+        // fetching API call
         const response = await fetch(url);
 
         const data = await response.json();
 
+        // assigning the data properties to variables for increased readability
         jokeType = data.type;
         setup = data.setup;
         punchline = data.punchline;
@@ -23,9 +26,10 @@ async function runApiCall() {
         // adding the punchline property to punchlineContainer
         punchlineContainer.innerHTML = `${punchline}`;
 
-        // adding the title to show setup value
+        // changing the title metatag to show setup value
         document.title = `${setup}`;
 
+    // checking for errors
     } catch  (error) {
         console.log(error);
         header.classList.add("error");
@@ -34,4 +38,5 @@ async function runApiCall() {
     }
 }
 
+// runs the API call
 runApiCall();
