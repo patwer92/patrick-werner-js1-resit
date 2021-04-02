@@ -1,2 +1,1 @@
-# patrick-werner-js1-resit
-javascript1 resit
+JavaScript 1 Course Assignment files
