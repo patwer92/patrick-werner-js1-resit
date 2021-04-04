@@ -17,7 +17,7 @@ async function runApiCall() {
         // removes the html (loader) in resultsContainer
         resultsContainer.innerHTML = "";
 
-        // looping through the results from the API
+        // looping through the results from API
         for (let i = 0; i < results.length; i++ ) {
 
             // assigning variables to all the API properties
@@ -54,7 +54,7 @@ async function runApiCall() {
         
     }
 }
-//removes card element(template) when loading API
+// removes card template when loading API
 card.innerHTML = "";
 
 // waits 1 second before running API call
