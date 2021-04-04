@@ -17,7 +17,7 @@ const messageError = document.querySelector("#messageError");
 
 
 // checking the correct value for each input
-function validateForm() {
+function validateForm(event) {
 
     //prevents default event action
     event.preventDefault();
